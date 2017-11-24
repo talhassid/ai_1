@@ -31,7 +31,7 @@ class Problem(metaclass=abc.ABCMeta):
     def isGoal(self, state):
         raise NotImplementedError
 
-from states import MapState
+# from states import MapState
 
 class MapProblem(Problem):
     target = None
@@ -63,7 +63,7 @@ class MapProblem(Problem):
     def isGoal(self, state):
         return state.junctionIdx == self.target.junctionIdx
 
-from states import BusState
+# from states import BusState
 
 class BusProblem(Problem):
     orders = None
