@@ -1,10 +1,10 @@
-from consts import Consts
-from ways import load_map_from_csv
-from problems import BusProblem
-from path import Path
+from AI1.consts import Consts
+from AI1.ways import load_map_from_csv
+from AI1.problems import BusProblem
+from AI1.path import Path
 from matplotlib import pyplot as plt
-from ways.draw import plotPath, plotOrders
-from ways.tools import compute_distance
+from AI1.ways.draw import plotPath, plotOrders
+from AI1.ways.tools import compute_distance
 import numpy as np
 
 # Read files
@@ -15,8 +15,8 @@ prob = BusProblem.load(Consts.getDataFilePath("TLV_5.in"))
 # Print details of a random order
 order = prob.orders[np.random.choice(np.arange(len(prob.orders)))]
 print("One of the orders is from junction #{} at ({}, {}) to #{} at ({}, {})".format(
-    order[0], roads[order[0]].lat, -1,
-    order[1], -1, -1))
+    order[0], roads[order[0]].lat, roads[order[0]].lon,
+    order[1], roads[order[1]].lat, roads[order[1]].lon))
 print("A lower bound on the distance we need to drive for this order is: {:.2f}km".format(
     compute_distance(roads[order[0]].coordinates, roads[order[0]].coordinates) / 1000))
 
